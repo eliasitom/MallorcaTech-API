@@ -5,12 +5,14 @@ module.exports = [
     name: 'strapi::security',
     config: {
       contentSecurityPolicy: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "'sha256-qxainhma06UpHpCCHHJd9iNsgGrEwX90oKujCm7uV04='"],
-        connectSrc: ["'self'", "wss://mallorcatech-api.onrender.com:5173"], // Asegúrate de permitir la conexión WebSocket
-        // Puedes añadir otras directivas según sea necesario, por ejemplo:
-        // styleSrc: ["'self'", "'unsafe-inline'"],
-        // imgSrc: ["'self'", "data:"],
+        directives: {
+          defaultSrc: ["'self'"],
+          scriptSrc: ["'self'", "'unsafe-inline'"], // ⚠️ Solo para pruebas, no en producción
+          connectSrc: ["'self'", "wss://mallorcatech-api.onrender.com:5173", "https:"],
+          imgSrc: ["'self'", "data:", "blob:"],
+          mediaSrc: ["'self'", "data:", "blob:"],
+          frameAncestors: ["'self'"],
+        },
       },
     },
   },
