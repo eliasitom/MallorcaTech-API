@@ -1,0 +1,43 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_showcases",
+  "info": {
+    "singularName": "main-showcase",
+    "pluralName": "main-showcases",
+    "displayName": "MainShowcase",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "slogan": {
+      "type": "string",
+      "required": true
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    },
+    "description1": {
+      "type": "string"
+    },
+    "description2": {
+      "type": "string"
+    },
+    "productPage": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
